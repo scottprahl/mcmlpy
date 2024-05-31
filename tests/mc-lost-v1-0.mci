@@ -1,0 +1,21 @@
+####
+# Simple absorbing-only sample with matched boundaries
+# 
+# Anything in a line after "#" is ignored as comments.
+# Space lines are also ignored.
+# Lengths are in cm, mua and mus are in 1/cm.
+####
+
+1.0                          # file version
+1                            # number of runs
+     
+mc-lost-v1-0.mco    A        # output filename, ASCII/Binary
+5000000                      # Number of photons
+0.02    0.002                # dz, dr
+1 1001      1                # Number of dz, dr & da.
+
+1                            # Number of layers
+# n   mua   mus    g     d   # One line for each layer
+1.0                          # air above.
+1.0   1.0   0.0   0.0   1.0  # layer 1
+1.0                          # air below.
