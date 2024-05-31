@@ -1,0 +1,10 @@
+.DS_Store
+*.pyc
+mcmlpy/__pycache__/
+docs/.ipynb_checkpoints
+docs/.jupyter
+mcmlpy.egg-info/
+docs/_build/
+docs/api/
+dist/
+.tox/

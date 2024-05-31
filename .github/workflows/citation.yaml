@@ -1,0 +1,40 @@
+---
+name: citation
+
+on:    # yamllint disable-line rule:truthy
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  update-citation:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: master
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.12
+
+      - name: Install dependencies needed for update_citation.py
+        run: |
+          pip install requests PyYAML
+
+      - name: Update CITATION.cff
+        run: |
+          python .github/scripts/update_citation.py
+
+      - name: Commit and Push CITATION.cff Update
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git diff --exit-code || (
+            git add CITATION.cff &&
+            git commit -m "Update CITATION.cff with latest release date" &&
+            git push
+          )
