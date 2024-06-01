@@ -8,7 +8,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 from matplotlib.ticker import FuncFormatter
-from matplotlib import cm, colors
+from matplotlib import colors
+import matplotlib.cm as cm
 
 __all__ = ['read_N_floats',
            'skip_to_line_after',
@@ -299,7 +300,7 @@ class MCML:
         zmax = np.max(logF)
         masked = np.ma.masked_less(logF, zmin)
 
-        cmap = cm.get_cmap('gist_ncar')
+        cmap = plt.get_cmap('gist_ncar')
         cmap.set_bad(color='black')  # Set the color for masked values
 
         _, ax = plt.subplots(figsize=(8, 4.5))  # Create a figure and an axes

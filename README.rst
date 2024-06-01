@@ -14,8 +14,6 @@
    :target: https://zenodo.org/badge/latestdoi/116033943
    :alt: doi  
 
-|
-
 .. |license| image:: https://img.shields.io/github/license/scottprahl/mcmlpy?color=68CA66
    :target: https://github.com/scottprahl/mcmlpy/blob/main/LICENSE.txt
    :alt: License
